@@ -1,0 +1,151 @@
+body{
+    font-family: Impact;
+    padding: 0px;
+    margin: 10px;
+    background-color:#999999;
+}
+#contenedor{
+    width: 95%;
+    max-width: 1100px;
+    margin: auto;
+}
+header nav{
+    border: solid 3px white;
+    text-align: center;
+    margin: auto;
+    border-radius: 20px;
+    background-color: #ABEBC6;
+    box-shadow: 2px 2px 2px black;
+}
+header nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+header nav ul li{
+    display: inline-block;
+}
+header nav ul li a{
+    color: black;
+    font-size: 23px;
+    font-family: Impact;
+    text-decoration: none;
+    padding: 11px 144px;
+    display: block;
+}
+header nav ul li a:hover{
+    background-color: #66CC99;
+}
+#botonInicio{
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+}
+#botonFinal{
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.menu_fijo{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    width: 100%;
+    max-width: 1100px;
+
+}
+#vacio{
+    margin-top: 20px;
+}
+#panelPrincipal{
+    margin: auto;
+    height: 1000px;
+    background-color: #EAFAF1;
+    border-radius: 10px;
+    width: 95%;
+}
+#logo{
+    text-align: center;
+}
+#bienvenida{
+    padding-top: 10px;
+    font-size: 55px;
+    text-align: center;
+    margin: auto;
+    width: 70%;
+}
+#bienvenida p{
+    margin: 0;
+}
+#task{
+    color: rgb(30, 200, 104); 
+    -webkit-text-stroke: 2px rgb(0, 0, 0);
+}
+#cloud{
+    color: rgb(250, 70, 97);
+    -webkit-text-stroke: 2px black;
+}
+#imagen1{
+    padding-top: 40px;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+#letra1{
+    padding-top: 10px;
+    font-size: 27px;
+}
+#registrate{
+    padding-top: 10px;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+#registrate p{
+    margin: 0;
+    font-size: 27px;
+    color: rgb(5, 119, 100);
+    -webkit-text-stroke: 0.5px black;
+}
+#registrate p a{
+    width: 60px;
+    border-radius: 10px;
+    color: black;
+    font-size: 23px;
+    font-family: Impact;
+    text-decoration: none;
+    display: inline-block;
+    background-color: rgb(168, 236, 150);
+    border: solid 2px black;
+}
+#registrate p a:hover{
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+#informacion{
+    padding-top: 20px;
+}
+#informacion hr{
+    height: 5px;
+    background: linear-gradient(to left, #ABEBC6, rgb(94, 182, 223));
+}
+#imagen2{
+    padding-top: 30px ;
+    text-align: center;
+    width: 40%;
+    float: left;
+}
+#letra2{
+    width: 55%;
+    height: 450px;
+    float: right;
+}
+#letra2 p{
+    font-size: 30px;
+    padding: 20px;
+}
+#letra2 h1{
+    font-size: 40px;
+    text-align: center;
+    color: teal;
+    -webkit-text-stroke: 2px black;
+    text-shadow: 2px 2px rgb(51, 73, 90) ;
+}
