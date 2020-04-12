@@ -54,10 +54,11 @@ header nav ul li a:hover{
 }
 #vacio{
     margin-top: 20px;
+    margin-bottom: 50px;
 }
 #panelPrincipal{
     margin: auto;
-    height: 600px;
+    height: 720px;
     background-color: #EAFAF1;
     border-radius: 10px;
     width: 95%;
