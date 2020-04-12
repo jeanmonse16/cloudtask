@@ -7,10 +7,41 @@ use Models\Event;
 
 class Users{
     public static function create_user($user){
-        $user = User::create(['firstname'=>$user[0],'lastname'=>$user[1],'username'=>$user[2],
+        $get_username = User::where("username",  $user[2])->first();
+        if($get_username){
+            return 0;
+        }
+
+        $get_email = User::where("email",  $user[3])->first();
+        if($get_email){
+            return 0;
+        }
+
+        $set_User = User::create(['firstname'=>$user[0],'lastname'=>$user[1],'username'=>$user[2],
                               'email'=>$user[3],'password'=>$user[4]
         ]);
-        return $user;
+
+        session_start();
+        $_SESSION["email"] = $user[3];
+
+        return $set_User;
+    }
+
+    public static function get_user($user){
+        $get_password = User::where("password",  $user[1])->first();
+        if(!$get_password){
+            return 0;
+        }
+
+        $get_email = User::where("email",  $user[0])->first();
+        if(!$get_email){
+            return 0;
+        }
+
+        session_start();
+        $_SESSION["email"] = $user[0];
+
+        return $get_email;
     }
 
     public static function update_user($user_info){
