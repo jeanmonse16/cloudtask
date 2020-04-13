@@ -30,7 +30,7 @@ header nav ul li a{
     font-size: 23px;
     font-family: Impact;
     text-decoration: none;
-    padding: 11px 144px;
+    padding: 11px 132px;
     display: block;
 }
 header nav ul li a:hover{
@@ -54,12 +54,11 @@ header nav ul li a:hover{
 }
 #vacio{
     margin-top: 20px;
-    margin-bottom: 50px;
 }
 #panelPrincipal{
     margin: auto;
-    height: 720px;
-    background-color: #EAFAF1;
+    height: 650px;
+    background-color: rgb(250, 249, 234);
     border-radius: 10px;
     width: 95%;
 }
