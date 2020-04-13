@@ -22,7 +22,7 @@ class Users{
         ]);
 
         session_start();
-        $_SESSION["email"] = $user[3];
+        $_SESSION["email"] = $set_User->id;
 
         return $set_User;
     }
@@ -39,7 +39,7 @@ class Users{
         }
 
         session_start();
-        $_SESSION["email"] = $user[0];
+        $_SESSION["id"] = $get_email->id;
 
         return $get_email;
     }

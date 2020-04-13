@@ -1,5 +1,7 @@
 <?php
 
+//Este archivo es el puente entre el frontend y el backend de esta app
+
 require './db_connection/start.php';
 
 use Controllers\Users;
@@ -11,6 +13,8 @@ if(!empty($_POST) && isset($_POST["data"])){
         if (!$user) {
             throw new Exception('DB Query Failed', 202);
         } 
+
+        echo ($_SESSION["id"]);
     } catch (Exception $e) {
         echo $e->getMessage();
         die();
@@ -26,6 +30,7 @@ if(!empty($_POST) && isset($_POST["login"])){
         if (!$user) {
             throw new Exception('DB Query Failed', 202);
         } 
+        echo ($_SESSION["id"]);
     } catch (Exception $e) {
         echo $e->getMessage();
         die();
@@ -34,6 +39,3 @@ if(!empty($_POST) && isset($_POST["login"])){
     
 }
 
-
-
-echo 'hola';
