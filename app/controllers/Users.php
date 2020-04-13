@@ -4,6 +4,7 @@ namespace Controllers;
 use Models\User;
 use Models\Task;
 use Models\Event;
+use Controllers\Session;
 
 class Users{
     public static function create_user($user){
@@ -20,9 +21,9 @@ class Users{
         $set_User = User::create(['firstname'=>$user[0],'lastname'=>$user[1],'username'=>$user[2],
                               'email'=>$user[3],'password'=>$user[4]
         ]);
+        
 
-        session_start();
-        $_SESSION["email"] = $set_User->id;
+        Session::log_in($set_User->id);
 
         return $set_User;
     }
@@ -38,8 +39,7 @@ class Users{
             return 0;
         }
 
-        session_start();
-        $_SESSION["id"] = $get_email->id;
+        Session::log_in($get_email->id);
 
         return $get_email;
     }

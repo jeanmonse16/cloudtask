@@ -16,11 +16,11 @@ const sendData = () => {
     
     function onSuccess() {
         Swal.fire({
-            title: '<strong><u> Bienvenido</u></strong>',
+            title: '<strong><u> Bienvenido a CloudTask</u></strong>',
             icon: 'success',
             html:
-              `<h1> <b>Presiona el botón para continuar</b> </h1></br>` ,
-            showCloseButton: true,
+              `<h1> <b>Le deseamos la mejor experiencia posible</b> </h1></br>` ,
+            showCloseButton: false,
             showCancelButton: false,
             focusConfirm: false,
             confirmButtonText:
@@ -47,6 +47,7 @@ const sendData = () => {
                 onError('Credenciales invalidas, por favor intentalo de nuevo')
             }else{
                 onSuccess()
+                setTimeout(() => location.assign('../organizador/'), 1500)
             }
                 console.log(data);
         },
