@@ -54,8 +54,13 @@ class Users{
         $updated = $user->save();
         return $updated;
     }
-
+    
     public static function get_tasks($user_id){
+        $count = Task::where('id_user',$user_id)->get();
+        return $count;
+    }
+
+    public static function get_numberof_tasks($user_id){
         $count = Task::where('id_user',$user_id)->count();
         return $count;
     }

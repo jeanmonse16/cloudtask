@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-Class Session{
+class Session{
     public static function log_in($id){
         session_start();
         $_SESSION["id"] = $id;

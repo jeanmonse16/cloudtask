@@ -4,9 +4,9 @@ namespace Controllers;
 use Models\Task;
 
 class Tasks{
-    public static function create_task($task){
-        $task = Task::create(['title'=>$task[0],'content'=>$task[1],'fecha_entrega'=>$task[2],
-                              'id_user'=>$task[3]
+    public static function create_task($task, $user){
+        $task = Task::create(['title'=>$task[1],'content'=>$task[2],'fecha_entrega'=>$task[0],
+                              'id_user'=>$user
         ]);
         return $task;
     }

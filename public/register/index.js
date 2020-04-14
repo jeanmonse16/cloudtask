@@ -55,7 +55,7 @@ const sendData = () => {
               `<h1> <b>${DATA[0]}</b> </h1></br>` +
               `bienvenido a CloudTask </br>` ,
     
-            showCloseButton: true,
+            showCloseButton: false,
             showCancelButton: false,
             focusConfirm: false,
             confirmButtonText:
@@ -82,6 +82,7 @@ const sendData = () => {
                 onError('Ingresaste un nombre de usuario o correo ya registrado, por favor ingresa otro')
             }else{
                 onSuccess()
+                setTimeout(() => location.assign('../organizador/'), 1500)
             }
                 console.log(data);
         },

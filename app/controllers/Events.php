@@ -4,9 +4,9 @@ namespace Controllers;
 use Models\Event;
 
 class Events{
-    public static function create_event($event){
-        $event = Event::create(['title'=>$event[0],'content'=>$event[1],'fecha_entrega'=>$event[2],
-                              'id_user'=>$event[3]
+    public static function create_event($event, $user){
+        $event = Event::create(['title'=>$event[1],'content'=>$event[2],'fecha_entrega'=>$event[0],
+                              'id_user'=>$user
         ]);
         return $event;
     }

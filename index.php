@@ -5,6 +5,8 @@
 require './db_connection/start.php';
 
 use Controllers\Users;
+use Controllers\Tasks;
+use Controllers\Events;
 
 if(!empty($_POST) && isset($_POST["data"])){
     try {
@@ -39,3 +41,34 @@ if(!empty($_POST) && isset($_POST["login"])){
     
 }
 
+if(!empty($_POST) && isset($_POST["task"])){
+    session_start();
+    try {
+        $results = $_POST["task"];
+        $user = Tasks::create_task($results, $_SESSION["id"]);
+        if (!$user) {
+            throw new Exception('DB Query Failed', 202);
+        } 
+    } catch (Exception $e) {
+        echo $e->getMessage();
+        die();
+    }
+
+    
+}
+
+if(!empty($_POST) && isset($_POST["event"])){
+    session_start();
+    try {
+        $results = $_POST["event"];
+        $user = Events::create_event($results, $_SESSION["id"]);
+        if (!$user) {
+            throw new Exception('DB Query Failed', 202);
+        } 
+    } catch (Exception $e) {
+        echo $e->getMessage();
+        die();
+    }
+
+    
+}
