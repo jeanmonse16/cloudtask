@@ -147,6 +147,17 @@ header nav ul li a:hover{
     background-color: rgba(56, 179, 107, 0.123);
     
 }
+
+#añadirE{
+    margin: auto;
+    width: 95%;
+    border: solid 3px rgb(255, 255, 255);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 2px 2px 2px black;
+    background-color: rgba(56, 179, 107, 0.123);
+    
+}
 #texto{
     background-color: rgb(75, 230, 139);
     border-top-left-radius: 20px;
@@ -238,7 +249,19 @@ input, textarea{
     border-radius: 5px;
     border: solid 2px rgb(255, 255, 255);
 }
-#tareaFecha{
+
+.tareaNumero{
+    font-size: 15px;
+    font-family: impact;
+    display: inline-block;
+    text-align: center;
+    width: 15px;
+    margin-left: 6px;
+    background-color: rgb(205, 230, 255);
+    border-radius: 5px;
+    border: solid 2px rgb(255, 255, 255);
+}
+.tareaFecha{
     font-size: 15px;
     font-family: impact;
     display: inline-block;
@@ -249,7 +272,7 @@ input, textarea{
     border-radius: 5px;
     border: solid 2px rgb(255, 255, 255);
 }
-#tareaNombre{
+.tareaNombre{
     font-size: 15px;
     font-family: impact;
     display: inline-block;
@@ -260,7 +283,7 @@ input, textarea{
     border-radius: 5px;
     border: solid 2px rgb(255, 255, 255);
 }
-#tareaDescripcion{
+.tareaDescripcion{
     font-size: 15px;
     font-family: impact;
     display: inline-block;
@@ -270,11 +293,11 @@ input, textarea{
     border-radius: 5px;
     border: solid 2px rgb(255, 255, 255);
 }
-#tareaExistentes{
+.tareaExistentes{
     margin-top: 15px;
     margin-bottom: 15px;
 }
-#tareaExistentes .boton{
+.tareaExistentes .boton{
     float: right;
     margin-left: 3px;
     margin-right: 3px;
@@ -299,7 +322,32 @@ input, textarea{
     border-radius: 5px;
     border: solid 2px rgb(255, 255, 255);
 }
+
+.eventoNumero{
+    font-size: 15px;
+    font-family: impact;
+    display: inline-block;
+    text-align: center;
+    width: 15px;
+    margin-left: 6px;
+    background-color: rgb(205, 230, 255);
+    border-radius: 5px;
+    border: solid 2px rgb(255, 255, 255);
+}
+
 #eventoFecha{
+    font-size: 15px;
+    font-family: impact;
+    display: inline-block;
+    text-align: center;
+    width: 75px;
+    margin-left: 3px;
+    background-color: rgb(205, 230, 255);
+    border-radius: 5px;
+    border: solid 2px rgb(255, 255, 255);
+}
+
+.eventoFecha{
     font-size: 15px;
     font-family: impact;
     display: inline-block;
@@ -321,7 +369,30 @@ input, textarea{
     border-radius: 5px;
     border: solid 2px rgb(255, 255, 255);
 }
+
+.eventoNombre{
+    font-size: 15px;
+    font-family: impact;
+    display: inline-block;
+    text-align: center;
+    margin-left: 4px;
+    width: 143px;
+    background-color: rgb(205, 230, 255);
+    border-radius: 5px;
+    border: solid 2px rgb(255, 255, 255);
+}
 #eventoDescripcion{
+    font-size: 15px;
+    font-family: impact;
+    display: inline-block;
+    text-align: center;
+    width: 91px;
+    background-color: rgb(205, 230, 255);
+    border-radius: 5px;
+    border: solid 2px rgb(255, 255, 255);
+}
+
+.eventoDescripcion{
     font-size: 15px;
     font-family: impact;
     display: inline-block;
@@ -335,7 +406,12 @@ input, textarea{
     margin-top: 15px;
     margin-bottom: 15px;
 }
-#eventoExistentes .boton{
+
+.eventoExistentes{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.eventoExistentes .boton{
     float: right;
     margin-left: 3px;
     margin-right: 3px;
@@ -345,7 +421,7 @@ input, textarea{
     border-radius: 5px;
     background-color: rgb(122, 159, 194);
 }
-#eventoExistentes .boton:hover{
+.eventoExistentes .boton:hover{
     color: white;
     background-color: rgb(32, 212, 212);
 }

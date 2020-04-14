@@ -66,7 +66,7 @@ class Users{
     }
 
     public static function get_events($user_id){
-        $count = Event::where('id_user',$user_id)->count();
+        $count = Event::where('id_user',$user_id)->get();
         return $count;
     }
 }

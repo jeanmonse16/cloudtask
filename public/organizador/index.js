@@ -5,7 +5,7 @@ window.onload = () => {
         '../../Session.php',
         {
             success: async function(data) {
-              console.log('AJAX call was successful!', data);
+              console.log('AJAX call was successful!');
               if(data === '0'){
                   Organizador.style.display = 'none'
                   swal.fire('info', 'Debes iniciar sesión', 'info')
@@ -13,8 +13,9 @@ window.onload = () => {
               }
 
               await TaskListData('../../Session.php')
-              await EventListData('../../Session.php')
+              await EventListData('../../RandomRequest.php')
               TaskListBoxDo()
+              EventListBoxDo()
             },
             error: function() {
               alert('There was some error performing the AJAX call!');
@@ -25,7 +26,11 @@ window.onload = () => {
 
 //fetching de datos
 const TaskListBox = document.getElementById('añadir')
+const EventListBox = document.getElementById('añadirE')
 let TaskData, EventData
+let BUTTONS = []
+let TaskToDelete = []
+
 
 const TaskListData = (url) => {
     return new Promise((resolve, rejected) => {
@@ -57,7 +62,7 @@ const EventListData = (url) => {
                 console.log('AJAX call was successful!');
                 EventData = $.parseJSON(data)
                 resolve(data)
-                console.log(TaskData)
+                console.log(EventData)
               },
               error: function() {
                 alert('There was some error performing the AJAX call!');
@@ -71,34 +76,141 @@ const EventListData = (url) => {
 
 
 const TaskListBoxDo = () => {
+  let Parent = TaskListBox.getElementsByClassName('tareaExistentes')
+  while(Parent.length !== 0){
+    deletedBox = TaskListBox.lastChild
+    TaskListBox.removeChild(deletedBox)
+    console.log('borrado hijo:')
+    delete deletedBox
+   }
+
+   var box, input0, input1, input2, input3, input4, input5
    for(var i = 0; i < TaskData.length; i++){
        box = document.createElement('div')
+       box.setAttribute('class', 'tareaExistentes')
+       box.setAttribute('id', 'tareaExistentes')
+
+       input0 = document.createElement('input')
+       input0.type = 'text'
+       input0.value = TaskData[i].id
+       input0.setAttribute('class', 'tareaNumero')
+       box.appendChild(input0)
+
        input1 = document.createElement('input')
        input1.type = 'text'
        input1.value = TaskData[i].fecha_entrega
+       input1.setAttribute('class', 'tareaFecha')
        box.appendChild(input1)
+
        input2 = document.createElement('input')
        input2.type = 'text'
        input2.value = TaskData[i].title
+       input2.setAttribute('class', 'tareaNombre')
        box.appendChild(input2)
+
        input3 = document.createElement('input')
        input3.type = 'text'
        input3.value = TaskData[i].content
+       input3.setAttribute('class', 'tareaDescripcion')
        box.appendChild(input3)
+
        input4 = document.createElement('input')
        input4.type = 'button'
        input4.value = 'Modificar'
-       input4.class = 'boton'
+       input4.className = 'boton'
        box.appendChild(input4)
+
        input5 = document.createElement('input')
        input5.type = 'button'
        input5.value = 'Eliminar'
-       input5.class = 'boton'
+       input5.className = 'boton'
+       input5.setAttribute('id', TaskData[i].id)
+       input5.addEventListener('click', (e) => {
+         console.log(e.target.id)
+         TaskRemover(e.target.id)})
        box.appendChild(input5)
+       
+       BUTTONS.push(TaskData[i].id)
+
        TaskListBox.appendChild(box)
    }
 }
 
+const EventListBoxDo = () => {
+  let Parent = EventListBox.getElementsByClassName('eventoExistentes')
+  console.log(Parent)
+  while(Parent.length !== 0){
+    deletedBox = EventListBox.lastChild
+    EventListBox.removeChild(deletedBox)
+    console.log('borrado hijo:')
+    delete deletedBox
+   }
+
+   var box, input0, input1, input2, input3, input4, input5
+   for(var i = 0; i < EventData.length; i++){
+       box = document.createElement('div')
+       box.setAttribute('class', 'eventoExistentes')
+       box.setAttribute('id', 'eventoExistentes')
+
+       input0 = document.createElement('input')
+       input0.type = 'text'
+       input0.value = EventData[i].id
+       input0.setAttribute('class', 'eventoNumero')
+       box.appendChild(input0)
+
+       input1 = document.createElement('input')
+       input1.type = 'text'
+       input1.value = EventData[i].fecha_entrega
+       input1.setAttribute('class', 'eventoFecha')
+       box.appendChild(input1)
+
+       input2 = document.createElement('input')
+       input2.type = 'text'
+       input2.value = EventData[i].title
+       input2.setAttribute('class', 'eventoNombre')
+       box.appendChild(input2)
+
+       input3 = document.createElement('input')
+       input3.type = 'text'
+       input3.value = EventData[i].content
+       input3.setAttribute('class', 'eventoDescripcion')
+       box.appendChild(input3)
+
+       input4 = document.createElement('input')
+       input4.type = 'button'
+       input4.value = 'Modificar'
+       input4.className = 'boton'
+       box.appendChild(input4)
+
+       input5 = document.createElement('input')
+       input5.type = 'button'
+       input5.value = 'Eliminar'
+       input5.className = 'boton'
+       box.appendChild(input5)
+       EventListBox.appendChild(box)
+   }
+}
+
+//Eliminar tareas
+const TaskRemover = (id) => {
+  $.ajax({
+    async: true,
+    type: "POST",
+    url: "../../Session.php",
+    data: {
+        removeTask: id
+          },
+    success: async function(data) {
+            swal.fire('Información','Se ha eliminado la tarea', 'info')
+            console.log(data)
+            await TaskListData('../../Session.php')
+            TaskListBoxDo()
+    },
+    error: () => {
+        swal.fire('Error','ocurrio un error al enviar los datos, por favor intenta de nuevo', 'error')
+    }
+})
+}
 
 //tasks section
 const TASKDATE = document.getElementById('fechaTarea')
@@ -194,15 +306,17 @@ const sendTaskData = () => {
   }
 
   $.ajax({
-      async: false,
+      async: true,
       type: "POST",
       url: "../../index.php",
       data: {
           task: DATA
             },
-      success: function(data) {
+      success: async function(data) {
               onSuccess()
               console.log(data)
+              await TaskListData('../../Session.php')
+              TaskListBoxDo()
       },
       error: () => {
           onError('ocurrio un error al enviar los datos, por favor intenta de nuevo')
@@ -222,15 +336,17 @@ const sendEventData = () => {
   }
 
   $.ajax({
-      async: false,
+      async: true,
       type: "POST",
       url: "../../index.php",
       data: {
           event: DATA
             },
-      success: function(data) {
+      success: async function(data) {
               onSuccess()
               console.log(data)
+              await EventListData('../../RandomRequest.php')
+              EventListBoxDo()
       },
       error: () => {
           onError('ocurrio un error al enviar los datos, por favor intenta de nuevo')
@@ -286,3 +402,5 @@ const EVENTClick = () => EVENTBUTTON.addEventListener('click', Eventvalidator)
 
 TASKClick()
 EVENTClick()
+
+//Borrar tareas
