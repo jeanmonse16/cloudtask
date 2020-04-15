@@ -18,9 +18,19 @@
             </div>
             <nav class="menu">
                 <ul>
-                    <li><a href="../Inicio/index.html" id="botonInicio">Inicio</a></li>
-                    <li><a href="../about_us/index.html">Acerca de nosotros</a></li>
-                    <li><a href="../login/index.html" id="botonFinal">Log In</a></li>
+                    <li><a href="../inicio/index.php" id="botonInicio">Inicio</a></li>
+                    <?php
+                    ini_set("display_errors", 0);
+                    session_start();
+                    $organizer = "../organizador/index.html";
+                    $about_us = "../about_us/index.html";
+                    if($_SESSION["id"]){
+                      echo ("<li><a href=$organizer>Organizador</a></li>");
+                    }else{
+                      echo "<li><a href=$about_us>Acerca de nosotros</a></li>";
+                    }
+                    ?>
+                    <li><a href="../login/index.php" id="botonFinal">Log In</a></li>
                 </ul>
             </nav>
         </div>

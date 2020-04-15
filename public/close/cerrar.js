@@ -8,6 +8,7 @@ window.onload = () => {
               },
         success: function(data) {
             console.log('hola' + data)
+            Cerrar()
         },
         error: () => {
             swal.fire('Error','ocurrio un error al enviar los datos, por favor intenta de nuevo', 'error')
@@ -16,7 +17,8 @@ window.onload = () => {
 }
 
 
-setTimeout(function(){
-    window.open("../inicio/index.html");
-    window.close();
-},9000);
+const Cerrar = () => {
+    return setTimeout(function () {
+        location.assign("../inicio/index.php");
+    }, 9000);
+};

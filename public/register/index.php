@@ -18,9 +18,19 @@
             </div>
             <nav class="menu">
                 <ul>
-                    <li><a href="../inicio/index.html" id="botonInicio">Inicio</a></li>
-                    <li><a href="../organizador/index.html">Organizador</a></li>
-                    <li><a href="../login/index.html" id="botonFinal">Log In</a></li>
+                    <li><a href="../inicio/index.php" id="botonInicio">Inicio</a></li>
+                    <?php
+                    ini_set("display_errors", 0);
+                    session_start();
+                    $organizer = "../organizador/index.html";
+                    $about_us = "../about_us/index.html";
+                    if($_SESSION["id"]){
+                      echo ("<li><a href=$organizer>Organizador</a></li>");
+                    }else{
+                      echo "<li><a href=$about_us>Acerca de nosotros</a></li>";
+                    }
+                    ?>
+                    <li><a href="../login/index.php" id="botonFinal">Log In</a></li>
                 </ul>
             </nav>
         </div>
@@ -28,17 +38,29 @@
         <div id="contenedor">
             <div id="vacio">
                 <div id="panelPrincipal">
-                    <div id="ingreso">
-                        <h1>Ingresa en <label id="task">Task</label><label id="cloud">Cloud</label></h1>
+                    <div id="registro">
+                        <h1>Registrate en <label id="task">Task</label><label id="cloud">Cloud</label></h1>
                     </div>
                     <div id="ingresa">
-                        <h2>no te has registrado?</h2>
-                        <p>Crea una cuenta de <label id="task">Task</label><label id="cloud">Cloud   </label><a href="../register/index.html"> Aquí</a></p>
+                        <h2>¿Ya estas registrado?</h2>
+                        <p>Ingresa en tu <label id="task">Task</label><label id="cloud">Cloud   </label><a href="../login/index.php"> Aquí</a></p>
                         <img src="imagenes/favicon.png" width="300px">
                     </div>
-                    <div id="datosIngreso">
+                    <div id="datosRegistros">
                     <div id="datos">
-                        <form action="" method="POST">
+                        <form>
+                            <div class="area">
+                                <label for="nombre">Nombre:</label>
+                            </div>
+                            <input type="text" id="nombre" name="nombre" class="texto" placeholder="Ingresa tu nombre"><br>
+                            <div class="area">
+                                <label for="nombre">Apellido:</label>
+                            </div>
+                            <input type="text" id="apellido" name="apellido" class="texto" placeholder="Ingresa tu apellido"><br>
+                            <div class="area">
+                                <label for="nombre">Nombre de usuario:</label>
+                            </div>
+                            <input type="text" id="username" name="username" class="texto" placeholder="Ingresa tu nombre de usuario"><br>
                             <div class="area">
                                 <label for="correo">Correo:</label>
                             </div>
@@ -48,7 +70,7 @@
                             </div>
                             <input type="password" id="contraseña" name="contraseña" class="texto" placeholder="Ingresa tu contraseña"><br>
                             <div id="cajaBoton">
-                                <input type="button" name="boton" id="boton" value="Ingresar">
+                                <input type="button" name="boton" id="boton" value="Enviar">
                             </div>
                         </form>
                     </div>

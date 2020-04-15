@@ -478,7 +478,7 @@ const updateTaskInfo = (id) => {
   console.log(DATA)
   
   function onSuccess() {
-      Swal.fire('Éxito', 'Se registro tu petición', 'success')
+      swal.fire('Éxito', 'Se registro tu petición', 'success')
       }
   function onError(message){
       swal.fire('Error', message, 'error')
