@@ -68,6 +68,15 @@
                                         <input type="text" id="descripcionTarea" name="descripcionTarea" class="texto" placeholder="Descripcion">
                                         <input type="button" id="agregarTarea" class="boton" name="agregarTarea" value="agregar">
                                     </div>
+                                    <div class="modificandoTarea" id="modificandoTarea">
+                                        <label for="modificarFechaTarea">Fecha</label>
+                                        <input type="text" id="modificarFechaTarea" name="modificarFechaTarea" class="texto" placeholder="dd/MM/aaaa">
+                                        <label for="modificarNombreTarea">Nombre</label>
+                                        <input type="text" id="modificarNombreTarea" name="modificarNombreTarea" class="texto" placeholder="Nombre">
+                                        <label for="modificarDescripcionTarea">Descripcion</label>
+                                        <input type="text" id="modificarDescripcionTarea" name="modificarDescripcionTarea" class="texto" placeholder="Descripcion">
+                                        <input type="button" id="modificarTareaExistente" class="boton" name="modificarTareaExistente" value="actualizar">                                        
+                                    </div>
                                     <div id="tabla">
                                         <label id="nTabla">Nº</label><label id="fechaTabla">Fecha</label><label id="nombreTabla">Nombre</label><label id="descripcionTabla">Descripcion</label>
                                     </div>
@@ -77,7 +86,7 @@
                                         <input type="text" id="tareaNombre" value="trabajo">
                                         <input type="text" id="tareaDescripcion" value="que fastidio">
                                         <input type="button" id="eliminarTarea" class="boton" name="eliminarTarea" value="Eliminar">
-                                        <input type="button" id="modificarTarea" class="boton" name="modificarTarea" value="Modificar">
+                                        <input type="button" id="modificarTarea" class="boton" name="modificarTarea" value="Modificar" onclick="mostrarModificarTarea()">
                                     </div>
                                 </div>
                             </div>
@@ -95,6 +104,15 @@
                                         <input type="text" id="descripcionEvento" name="descripcionEvento" class="texto" placeholder="Descripcion">
                                         <input type="button" id="agregarEvento" class="boton" name="agregarEvento" value="agregar">
                                     </div>
+                                    <div class="modificandoEvento" id="modificandoEvento">
+                                        <label for="modificarFechaEvento">Fecha</label>
+                                        <input type="text" id="modificarFechaEvento" name="modificarFechaEvento" class="texto" placeholder="dd/MM/aaaa">
+                                        <label for="modificarNombreEvento">Nombre</label>
+                                        <input type="text" id="modificarNombreEvento" name="modificarNombreEvento" class="texto" placeholder="Nombre">
+                                        <label for="modificarDescripcionEvento">Descripcion</label>
+                                        <input type="text" id="modificarDescripcionEvento" name="modificarDescripcionEvento" class="texto" placeholder="Descripcion">
+                                        <input type="button" id="modificarEventoExistente" class="boton" name="modificarEventoExistente" value="actualizar">                                        
+                                    </div>
                                     <div id="tabla">
                                         <label id="nTabla">Nº</label><label id="fechaTabla">Fecha</label><label id="nombreTabla">Nombre</label><label id="descripcionTabla">Descripcion</label>
                                     </div>
@@ -104,7 +122,7 @@
                                         <input type="text" id="eventoNombre" value="trabajo">
                                         <input type="text" id="eventoDescripcion" value="que fastidio">
                                         <input type="button" id="eliminarEvento" class="boton" name="eliminarEvento" value="Eliminar">
-                                        <input type="button" id="modificarEvento" class="boton" name="modificarEvento" value="Modificar">
+                                        <input type="button" id="modificarEvento" class="boton" name="modificarEvento" value="Modificar" onclick="mostrarModificarEvento()">
                                     </div>
                                 </div>
                             </div>
@@ -115,5 +133,6 @@
         </div>
     </div>
     <script src="reloj.js"></script>
+    <script src="apartadoModificar.js"></script>
 </body>
 </html>
