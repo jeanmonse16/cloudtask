@@ -27,8 +27,12 @@ window.onload = () => {
 //fetching de datos
 const TaskListBox = document.getElementById('añadir')
 const EventListBox = document.getElementById('añadirE')
+const ModificarTaskBox = document.getElementById('modificandoTarea')
+const ModificarTaskBoxButton = document.getElementById('modificarTareaExistente')
+const ModificarEventBox = document.getElementById('modificandoEvento')
+const ModificarEventBoxButton = document.getElementById('modificarEventoExistente')
 let TaskData, EventData
-let BUTTONS = []
+
 let TaskToDelete = []
 
 
@@ -118,6 +122,12 @@ const TaskListBoxDo = () => {
        input4.type = 'button'
        input4.value = 'Modificar'
        input4.className = 'boton'
+       input4.setAttribute('name', TaskData[i].id)
+       input4.addEventListener('click', (e) => {
+           ModificarTaskBox.style.display="block"
+           ModificarTaskBoxButton.setAttribute('name', e.target.name)
+           onUpdateTask()
+       })
        box.appendChild(input4)
 
        input5 = document.createElement('input')
@@ -129,8 +139,6 @@ const TaskListBoxDo = () => {
          console.log(e.target.id)
          TaskRemover(e.target.id)})
        box.appendChild(input5)
-       
-       BUTTONS.push(TaskData[i].id)
 
        TaskListBox.appendChild(box)
    }
@@ -180,6 +188,12 @@ const EventListBoxDo = () => {
        input4.type = 'button'
        input4.value = 'Modificar'
        input4.className = 'boton'
+       input4.setAttribute('name', EventData[i].id)
+       input4.addEventListener('click', (e) => {
+           ModificarEventBox.style.display="block"
+           ModificarEventBoxButton.setAttribute('name', e.target.name)
+           onUpdateEvent()
+       })
        box.appendChild(input4)
 
        input5 = document.createElement('input')
@@ -427,3 +441,127 @@ const EVENTClick = () => EVENTBUTTON.addEventListener('click', Eventvalidator)
 
 TASKClick()
 EVENTClick()
+
+
+//Actualizar data
+
+function ocultarModificarTarea(){
+  document.getElementById("modificandoTarea").style.display="none";
+}
+
+function ocultarModificarEvento(){
+  document.getElementById("modificandoEvento").style.display="none";
+}
+
+const updateTaskDate = document.getElementById('modificarFechaTarea')
+const updateTaskTitle = document.getElementById('modificarNombreTarea')
+const updateTaskDescription = document.getElementById('modificarDescripcionTarea')
+
+const updateTaskInfo = (id) => {
+  let textInputs = [updateTaskDate.value, updateTaskTitle.value, updateTaskDescription.value]
+  for(var i = 0; i < textInputs.length; i++){
+      let correctInput = textValidator(textInputs[i])
+      if(!correctInput){
+          return 0
+      }
+  }
+
+  const correctDate = dateValidator(updateTaskDate)
+  if(!correctDate){
+    return 0
+  }
+
+  console.log('validación aprobada')
+  
+  const DATA = [updateTaskDate.value, updateTaskTitle.value, updateTaskDescription.value]
+  DATA.push(id)
+  console.log(DATA)
+  
+  function onSuccess() {
+      Swal.fire('Éxito', 'Se registro tu petición', 'success')
+      }
+  function onError(message){
+      swal.fire('Error', message, 'error')
+  }
+
+  $.ajax({
+      async: true,
+      type: "POST",
+      url: "../../index.php",
+      data: {
+          updateTask: DATA
+            },
+      success: async function(data) {
+              onSuccess()
+              console.log(data)
+              await TaskListData('../../Session.php')
+              TaskListBoxDo()
+      },
+      error: () => {
+          onError('ocurrio un error al enviar los datos, por favor intenta de nuevo')
+      }
+  })
+  console.log("datos enviados")
+}
+
+const onUpdateTask = () => ModificarTaskBoxButton.addEventListener('click', (e) => {
+    updateTaskInfo(e.target.name)
+    ocultarModificarTarea()
+})
+
+const updateEventDate = document.getElementById('modificarFechaEvento')
+const updateEventTitle = document.getElementById('modificarNombreEvento')
+const updateEventDescription = document.getElementById('modificarDescripcionEvento')
+
+
+const updateEventInfo = (id) => {
+  let textInputs = [updateEventDate.value, updateEventTitle.value, updateEventDescription.value]
+  for(var i = 0; i < textInputs.length; i++){
+      let correctInput = textValidator(textInputs[i])
+      if(!correctInput){
+          return 0
+      }
+  }
+
+  const correctDate = dateValidator(updateEventDate)
+  if(!correctDate){
+    return 0
+  }
+
+  console.log('validación aprobada')
+  
+  const DATA = [updateEventDate.value, updateEventTitle.value, updateEventDescription.value]
+  DATA.push(id)
+  console.log(DATA)
+  
+  function onSuccess() {
+      Swal.fire('Éxito', 'Se registro tu petición', 'success')
+      }
+  function onError(message){
+      swal.fire('Error', message, 'error')
+  }
+
+  $.ajax({
+      async: true,
+      type: "POST",
+      url: "../../index.php",
+      data: {
+          updateEvent: DATA
+            },
+      success: async function(data) {
+              onSuccess()
+              console.log(data)
+              await EventListData('../../RandomRequest.php')
+              EventListBoxDo()
+      },
+      error: () => {
+          onError('ocurrio un error al enviar los datos, por favor intenta de nuevo')
+      }
+  })
+  console.log("datos enviados")
+}
+
+const onUpdateEvent = () => ModificarEventBoxButton.addEventListener('click', (e) => {
+    updateEventInfo(e.target.name)
+    ocultarModificarEvento()
+})

@@ -425,3 +425,20 @@ input, textarea{
     color: white;
     background-color: rgb(32, 212, 212);
 }
+
+.modificandoTarea{
+    text-align: center;
+    background-color: cadetblue;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 15px;
+    display: none;
+}
+.modificandoEvento{
+    text-align: center;
+    background-color: cadetblue;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 15px;
+    display: none;
+}

@@ -72,3 +72,34 @@ if(!empty($_POST) && isset($_POST["event"])){
 
     
 }
+
+if(!empty($_POST) && isset($_POST["updateTask"])){
+    try {
+        $results = $_POST["updateTask"];
+        $user = Tasks::update_task($results);
+        if (!$user) {
+            throw new Exception('DB Query Failed', 202);
+        } 
+    } catch (Exception $e) {
+        echo $e->getMessage();
+        die();
+    }
+
+    
+}
+
+
+if(!empty($_POST) && isset($_POST["updateEvent"])){
+    try {
+        $results = $_POST["updateEvent"];
+        $user = Events::update_event($results);
+        if (!$user) {
+            throw new Exception('DB Query Failed', 202);
+        } 
+    } catch (Exception $e) {
+        echo $e->getMessage();
+        die();
+    }
+
+    
+}

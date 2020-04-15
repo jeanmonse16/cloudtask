@@ -12,10 +12,10 @@ class Tasks{
     }
 
     public static function update_task($task_info){
-        $task = Task::find($task_info[0]);
+        $task = Task::find($task_info[3]);
         $task->title = $task_info[1];
         $task->content = $task_info[2];
-        $task->fecha_entrega = $task_info[3];
+        $task->fecha_entrega = $task_info[0];
         $updated = $task->save();
         return $updated;
     }

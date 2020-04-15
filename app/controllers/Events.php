@@ -12,10 +12,10 @@ class Events{
     }
 
     public static function update_event($task_info){
-        $task = Event::find($task_info[0]);
+        $task = Event::find($task_info[3]);
         $task->title = $task_info[1];
         $task->content = $task_info[2];
-        $task->fecha_entrega = $task_info[3];
+        $task->fecha_entrega = $task_info[0];
         $updated = $task->save();
         return $updated;
     }
