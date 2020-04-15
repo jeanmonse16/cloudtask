@@ -51,7 +51,11 @@
                     <div id="informacion">
                         <hr>
                         <div id="imagen2">
-                            <img src="imagenes/libro.png" width="400px">
+                          <ul>
+                                <li><img src="imagenes/libro.png" width="400px"></li>
+                                <li><img src="imagenes/examen.png" width="400px"></li>
+                                <li><img src="imagenes/calendario.png" width="400px"></li>
+                          </ul>
                         </div>
                         <div id="letra2">
                             <h1>Organiza en un solo sitio tus:</h1>

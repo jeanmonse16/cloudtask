@@ -9,7 +9,7 @@ window.onload = () => {
               if(data === '0'){
                   Organizador.style.display = 'none'
                   swal.fire('info', 'Debes iniciar sesión', 'info')
-                  setTimeout(() => location.assign('../login'), 1000)
+                  setTimeout(() => location.assign('../login/index.php'), 1000)
               }
 
               await TaskListData('../../Session.php')

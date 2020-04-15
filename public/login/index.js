@@ -24,7 +24,7 @@ const sendData = () => {
             showCancelButton: false,
             focusConfirm: false,
             confirmButtonText:
-              '<a class="fa fa-thumbs-up" href="../inicio/index.html"></i> Genial!',
+              '<a class="fa fa-thumbs-up" href="../organizador/index.html"></i> Genial!',
             confirmButtonAriaLabel: 'Thumbs up, great!',
             cancelButtonText:
               '<i class="fa fa-thumbs-down">OK</i>',

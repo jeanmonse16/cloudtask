@@ -113,7 +113,7 @@ const validator = () => {
 
     let correctPassword = passwordValidator(PASSWORD.value)
     if(!correctPassword){
-        swal.fire('Error', "Debes ingresar una contraseña válida")
+        swal.fire('Error', "Debes ingresar una contraseña válida, con mínimo un caracter mayúsculo, minúsculo, númerico y especial", "error")
         return 0
     }
 

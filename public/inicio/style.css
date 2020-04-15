@@ -30,7 +30,7 @@ header nav ul li a{
     font-size: 23px;
     font-family: Impact;
     text-decoration: none;
-    padding: 11px 140px;
+    padding: 11px 132px;
     display: block;
 }
 header nav ul li a:hover{
@@ -85,6 +85,7 @@ header nav ul li a:hover{
 }
 #imagen1{
     padding-top: 40px;
+    height: 30%;
     width: 70%;
     margin: auto;
     text-align: center;
@@ -128,10 +129,22 @@ header nav ul li a:hover{
     background: linear-gradient(to left, #ABEBC6, rgb(94, 182, 223));
 }
 #imagen2{
-    padding-top: 30px ;
-    text-align: center;
     width: 40%;
     float: left;
+    overflow: hidden;
+}
+#imagen2 ul{
+    display: flex;
+    padding: 0;
+    width: 300%;
+    animation: slider 10s infinite alternate;
+}
+#imagen2 li{
+    list-style: none;
+    width: 100%;
+}
+#imagen2 img{
+    width: 100%;
 }
 #letra2{
     width: 55%;
@@ -148,4 +161,21 @@ header nav ul li a:hover{
     color: teal;
     -webkit-text-stroke: 2px black;
     text-shadow: 2px 2px rgb(51, 73, 90) ;
+}
+
+#imagen1 img{
+    animation: hilo 2s infinite alternate;
+}
+
+@keyframes slider {
+    0% {margin-left: 0;}
+    30% {margin-left: 0;}
+    35% {margin-left: -100%;}
+    65% {margin-left: -100%;}
+    70% {margin-left: -200%;}
+    100% {margin-left: -200%;}
+}
+@keyframes hilo {
+    0%{width: 40%}
+    100%{width: 43%;}
 }

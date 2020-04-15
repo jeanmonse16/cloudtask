@@ -57,7 +57,8 @@ header nav ul li a:hover{
 }
 #panelPrincipal{
     margin: auto;
-    height: 830px;
+    height: 1230px;
+    position: relative;
     background-color: #EAFAF1;
     border-radius: 10px;
     width: 95%;
@@ -102,3 +103,7 @@ header nav ul li a:hover{
     width: 100%;
     text-align: center;
 }
+
+.selectP{ text-align: center; margin-top: 20px;}
+
+.selectB{ margin-left: 470px;}
