@@ -1,7 +1,7 @@
 <?php
  
  define('DBDRIVER','mysql');
- define('DBHOST','localhost');
- define('DBNAME','cloudtask');
- define('DBUSER','root');
- define('DBPASS','twentyonepilots14.');
+ define('DBHOST','remotemysql.com');
+ define('DBNAME','K5DpAgdWO1');
+ define('DBUSER','K5DpAgdWO1');
+ define('DBPASS','NFUpbDJndP');

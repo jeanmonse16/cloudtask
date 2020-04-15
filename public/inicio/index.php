@@ -46,7 +46,7 @@
                         <p id="letra1">Tu organizador de tareas online</p>
                     </div>
                     <div id="registrate">
-                        <p>registrate <a href="../register/index.html">Aquí</a></p>
+                        <p>registrate <a href="../register/index.php">Aquí</a></p>
                     </div>
                     <div id="informacion">
                         <hr>
