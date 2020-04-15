@@ -186,6 +186,11 @@ const EventListBoxDo = () => {
        input5.type = 'button'
        input5.value = 'Eliminar'
        input5.className = 'boton'
+       input5.setAttribute('id', EventData[i].id)
+       input5.addEventListener('click', (e) => {
+        console.log(e.target.id)
+        EventRemover(e.target.id)})
+
        box.appendChild(input5)
        EventListBox.appendChild(box)
    }
@@ -205,6 +210,26 @@ const TaskRemover = (id) => {
             console.log(data)
             await TaskListData('../../Session.php')
             TaskListBoxDo()
+    },
+    error: () => {
+        swal.fire('Error','ocurrio un error al enviar los datos, por favor intenta de nuevo', 'error')
+    }
+})
+}
+
+const EventRemover = (id) => {
+  $.ajax({
+    async: true,
+    type: "POST",
+    url: "../../Session.php",
+    data: {
+        removeEvent: id
+          },
+    success: async function(data) {
+            swal.fire('Información','Se ha eliminado el evento', 'info')
+            console.log(data)
+            await EventListData('../../RandomRequest.php')
+            EventListBoxDo()
     },
     error: () => {
         swal.fire('Error','ocurrio un error al enviar los datos, por favor intenta de nuevo', 'error')
@@ -402,5 +427,3 @@ const EVENTClick = () => EVENTBUTTON.addEventListener('click', Eventvalidator)
 
 TASKClick()
 EVENTClick()
-
-//Borrar tareas

@@ -5,6 +5,7 @@ require 'db_connection/start.php';
 
 use Controllers\Users;
 use Controllers\Tasks;
+use Controllers\Events;
 
 session_start();
 
@@ -20,6 +21,22 @@ if(!empty($_POST) && isset($_POST["removeTask"])){
     try {
         $results = $_POST["removeTask"];
         $user = Tasks::delete_task($_POST["removeTask"]);
+        if (!$user) {
+            throw new Exception('DB Query Failed', 202);
+        } 
+    } catch (Exception $e) {
+        echo $e->getMessage();
+        die();
+    }
+
+    
+}
+
+if(!empty($_POST) && isset($_POST["removeEvent"])){
+    session_start();
+    try {
+        $results = $_POST["removeEvent"];
+        $user = Events::delete_event($_POST["removeEvent"]);
         if (!$user) {
             throw new Exception('DB Query Failed', 202);
         } 
